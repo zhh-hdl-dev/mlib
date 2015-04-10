@@ -7,12 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46150C651ABC91A900BA78F0 /* TriFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150C641ABC91A900BA78F0 /* TriFuncs.swift */; };
+		46150C671ABC91F100BA78F0 /* TriHFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150C661ABC91F100BA78F0 /* TriHFuncs.swift */; };
+		46150C691ABC92BF00BA78F0 /* ArcTriFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150C681ABC92BF00BA78F0 /* ArcTriFuncs.swift */; };
+		46150C6B1ABC930800BA78F0 /* ArcTriHFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150C6A1ABC930800BA78F0 /* ArcTriHFuncs.swift */; };
+		46150C6D1ABC935A00BA78F0 /* BinaryOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150C6C1ABC935A00BA78F0 /* BinaryOperators.swift */; };
+		46150C6F1ABC954F00BA78F0 /* libB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150C6E1ABC954F00BA78F0 /* libB.swift */; };
+		46150C711ABC963700BA78F0 /* libC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150C701ABC963700BA78F0 /* libC.swift */; };
+		461D61981AD0C923008028B8 /* SView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D61971AD0C923008028B8 /* SView.swift */; };
+		461D619A1AD0C972008028B8 /* ButtonCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D61991AD0C972008028B8 /* ButtonCreation.swift */; };
 		463B45A11AAA1DDD006FDF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45A01AAA1DDD006FDF51 /* AppDelegate.swift */; };
 		463B45A31AAA1DDD006FDF51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45A21AAA1DDD006FDF51 /* ViewController.swift */; };
 		463B45A61AAA1DDD006FDF51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463B45A41AAA1DDD006FDF51 /* Main.storyboard */; };
 		463B45A81AAA1DDD006FDF51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463B45A71AAA1DDD006FDF51 /* Images.xcassets */; };
 		463B45AB1AAA1DDD006FDF51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 463B45A91AAA1DDD006FDF51 /* LaunchScreen.xib */; };
 		463B45B71AAA1DDD006FDF51 /* sssssTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45B61AAA1DDD006FDF51 /* sssssTests.swift */; };
+		463B45C81AAA1E08006FDF51 /* BasicFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C01AAA1E08006FDF51 /* BasicFunction.swift */; };
+		463B45CA1AAA1E08006FDF51 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C21AAA1E08006FDF51 /* Complex.swift */; };
+		463B45CB1AAA1E08006FDF51 /* Fraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C31AAA1E08006FDF51 /* Fraction.swift */; };
+		463B45CC1AAA1E08006FDF51 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C41AAA1E08006FDF51 /* Function.swift */; };
+		463B45CD1AAA1E08006FDF51 /* libA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C51AAA1E08006FDF51 /* libA.swift */; };
+		463B45CF1AAA1E08006FDF51 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C71AAA1E08006FDF51 /* Matrix.swift */; };
+		46E691C81AB0E7E000DCF39D /* UItItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E691C71AB0E7DF00DCF39D /* UItItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46150C641ABC91A900BA78F0 /* TriFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriFuncs.swift; sourceTree = "<group>"; };
+		46150C661ABC91F100BA78F0 /* TriHFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriHFuncs.swift; sourceTree = "<group>"; };
+		46150C681ABC92BF00BA78F0 /* ArcTriFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcTriFuncs.swift; sourceTree = "<group>"; };
+		46150C6A1ABC930800BA78F0 /* ArcTriHFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcTriHFuncs.swift; sourceTree = "<group>"; };
+		46150C6C1ABC935A00BA78F0 /* BinaryOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryOperators.swift; sourceTree = "<group>"; };
+		46150C6E1ABC954F00BA78F0 /* libB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libB.swift; sourceTree = "<group>"; };
+		46150C701ABC963700BA78F0 /* libC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libC.swift; sourceTree = "<group>"; };
+		461D61971AD0C923008028B8 /* SView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SView.swift; sourceTree = "<group>"; };
+		461D61991AD0C972008028B8 /* ButtonCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCreation.swift; sourceTree = "<group>"; };
 		463B459B1AAA1DDD006FDF51 /* sssss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sssss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B459F1AAA1DDD006FDF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463B45A01AAA1DDD006FDF51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +61,13 @@
 		463B45B01AAA1DDD006FDF51 /* sssssTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sssssTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B45B51AAA1DDD006FDF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463B45B61AAA1DDD006FDF51 /* sssssTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sssssTests.swift; sourceTree = "<group>"; };
+		463B45C01AAA1E08006FDF51 /* BasicFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicFunction.swift; sourceTree = "<group>"; };
+		463B45C21AAA1E08006FDF51 /* Complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
+		463B45C31AAA1E08006FDF51 /* Fraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fraction.swift; sourceTree = "<group>"; };
+		463B45C41AAA1E08006FDF51 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		463B45C51AAA1E08006FDF51 /* libA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libA.swift; sourceTree = "<group>"; };
+		463B45C71AAA1E08006FDF51 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		46E691C71AB0E7DF00DCF39D /* UItItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UItItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +109,24 @@
 		463B459D1AAA1DDD006FDF51 /* sssss */ = {
 			isa = PBXGroup;
 			children = (
+				463B45C51AAA1E08006FDF51 /* libA.swift */,
+				46150C6E1ABC954F00BA78F0 /* libB.swift */,
+				46150C701ABC963700BA78F0 /* libC.swift */,
+				463B45C01AAA1E08006FDF51 /* BasicFunction.swift */,
+				463B45C21AAA1E08006FDF51 /* Complex.swift */,
+				463B45C31AAA1E08006FDF51 /* Fraction.swift */,
+				463B45C41AAA1E08006FDF51 /* Function.swift */,
+				46150C6C1ABC935A00BA78F0 /* BinaryOperators.swift */,
+				46150C6A1ABC930800BA78F0 /* ArcTriHFuncs.swift */,
+				46150C641ABC91A900BA78F0 /* TriFuncs.swift */,
+				46150C661ABC91F100BA78F0 /* TriHFuncs.swift */,
+				46150C681ABC92BF00BA78F0 /* ArcTriFuncs.swift */,
+				463B45C71AAA1E08006FDF51 /* Matrix.swift */,
 				463B45A01AAA1DDD006FDF51 /* AppDelegate.swift */,
 				463B45A21AAA1DDD006FDF51 /* ViewController.swift */,
+				46E691C71AB0E7DF00DCF39D /* UItItems.swift */,
+				461D61971AD0C923008028B8 /* SView.swift */,
+				461D61991AD0C972008028B8 /* ButtonCreation.swift */,
 				463B45A41AAA1DDD006FDF51 /* Main.storyboard */,
 				463B45A71AAA1DDD006FDF51 /* Images.xcassets */,
 				463B45A91AAA1DDD006FDF51 /* LaunchScreen.xib */,
@@ -212,8 +260,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46150C6D1ABC935A00BA78F0 /* BinaryOperators.swift in Sources */,
 				463B45A31AAA1DDD006FDF51 /* ViewController.swift in Sources */,
+				46150C671ABC91F100BA78F0 /* TriHFuncs.swift in Sources */,
+				461D61981AD0C923008028B8 /* SView.swift in Sources */,
+				461D619A1AD0C972008028B8 /* ButtonCreation.swift in Sources */,
+				46150C651ABC91A900BA78F0 /* TriFuncs.swift in Sources */,
+				463B45C81AAA1E08006FDF51 /* BasicFunction.swift in Sources */,
+				463B45CC1AAA1E08006FDF51 /* Function.swift in Sources */,
+				46150C6F1ABC954F00BA78F0 /* libB.swift in Sources */,
+				46E691C81AB0E7E000DCF39D /* UItItems.swift in Sources */,
 				463B45A11AAA1DDD006FDF51 /* AppDelegate.swift in Sources */,
+				463B45CB1AAA1E08006FDF51 /* Fraction.swift in Sources */,
+				46150C691ABC92BF00BA78F0 /* ArcTriFuncs.swift in Sources */,
+				463B45CD1AAA1E08006FDF51 /* libA.swift in Sources */,
+				463B45CF1AAA1E08006FDF51 /* Matrix.swift in Sources */,
+				46150C6B1ABC930800BA78F0 /* ArcTriHFuncs.swift in Sources */,
+				463B45CA1AAA1E08006FDF51 /* Complex.swift in Sources */,
+				46150C711ABC963700BA78F0 /* libC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +471,7 @@
 				463B45BC1AAA1DDD006FDF51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		463B45BD1AAA1DDD006FDF51 /* Build configuration list for PBXNativeTarget "sssssTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +480,7 @@
 				463B45BF1AAA1DDD006FDF51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
