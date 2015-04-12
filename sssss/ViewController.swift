@@ -89,11 +89,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //=======================================
     @IBAction func getRes(sender: AnyObject) {
         var slist=resView.subviews;
-        for subv in slist{
-            subv.removeFromSuperview();
-        }
+        for subv in slist{subv.removeFromSuperview();}
         var rawStr:String = usrInput.text;
-        var rawRes:Array<String>? = inputStrProcess(arrOfFunc,arrOfNum,rawStr);
+        var rSre:String = exprTransf(rawStr,resDirector!.getArrOfMN(),dicOfFun,dicOfCons);
+        var rSreO:String = "";
+        while(rSreO != rSre){
+            rSreO = rSre;
+            rSre = exprTransf(rSre,resDirector!.getArrOfMN(),dicOfFun,dicOfCons);
+        }
+        var rawRes:Array<String>? = inputStrProcess(arrOfFunc+resDirector!.getArrOfMN(),arrOfNum,rSre);
         var surfixRes:Array<String> = infixToSuffix(rawRes!);
         var resFunc:Function=suffixExpAnalysis(surfixRes);
         resView.addSubview(occSimplify(resFunc).pp());
@@ -120,8 +124,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var funcExpr: UITextField!
     
     var dicOfMatrix:Dictionary<String,Matrix>=Dictionary<String,Matrix>();
-    var dicOfConst:Dictionary<String,Double>=Dictionary<String,Double>();
-    var dicOfFun:Dictionary<String,Function>=Dictionary<String,Function>();
+    var dicOfFun:Dictionary<String,String->String>=Dictionary<String,String->String>();
+    var dicOfCons:Dictionary<String,String>=Dictionary<String,String>();
+    
+    
     var uiRowOfMatrix:Array<UITextField>=Array<UITextField>();
     var arrOfConst:Array<String>=Array<String>();
     var arrOfMat:Array<String>=Array<String>();
@@ -130,7 +136,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func constAdd(sender:UIButton) {
         if((!constName.text.isEmpty)&&(!arrHas(arrOfAllEle,constName.text))){
-            dicOfConst[constName.text]=(constField.text as NSString).doubleValue;
+            dicOfCons[constName.text]=constField.text;
             resDirector?.addL(constName.text+":C:"+constField.text);
             arrOfConst.append(constName.text);
             constName.text="";
@@ -162,7 +168,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     @IBAction func funcAdd(sender: UIButton) {
         if((!funcName.text.isEmpty)&&(!arrHas(arrOfAllEle,funcName.text))){
-            dicOfFun[funcName.text]=suffixExpAnalysis(infixToSuffix(inputStrProcess(arrOfFunc,arrOfNum,funcExpr.text)));
+            
+            var arrOfComp:Array<String> = inputStrProcess(arrOfFunc,arrOfNum,funcExpr.text);
+            func resFunc(x:String)->String{
+                var res:String="";
+                for(var i:Int=0;i<count(arrOfComp);i++){
+                    if(arrOfComp[i] != "x"){res+=arrOfComp[i];}
+                    else{res+=x;}
+                }
+                return res;
+            }
+            dicOfFun[funcName.text]=resFunc;
             resDirector?.addL(funcName.text+":F:"+funcExpr.text);
             arrOfFun.append(funcName.text);
             funcName.text="";

@@ -94,59 +94,44 @@ func approxFrom(v:Double)->Fraction{
     return Fraction(a:a,b:b);
 }
 func arrHas(A:Array<String>,s:String)->Bool{
-    for(var i:Int=0;i < count(A);i++){
-        if(A[i]==s){
-            return true;
-        }
-    }
-    return false;
+    for(var i:Int=0;i < count(A);i++){if(A[i]==s){return true;}}
+        return false;
 }
 func priority(ope:String)->Int{
-    if((ope=="*")||(ope=="/")){
-        return 4;
-    }else if((ope=="+")||(ope=="-")){
-        return 5;
-    }else if(arrHas(arrOfLBracket+arrOfRBracket,ope)){
-        return 0;
-    }else if(arrHas(arrOfUniary,ope)){
-        return 1;
-    }else if(ope=="^"){
-        return 3;
-    }else if(ope=="integral"){
-        return 1;
-    }else if(ope==","){
-        return 6;
-    }else if((ope=="|")){
-        return 2;
-    }
+    if((ope=="*")||(ope=="/")){return 4;}
+    else if((ope=="+")||(ope=="-")){return 5;}
+    else if(arrHas(arrOfLBracket+arrOfRBracket,ope)){return 0;}
+    else if(arrHas(arrOfUniary,ope)){return 1;}
+    else if(ope=="^"){return 3;}
+    else if(ope=="integral"){return 1;}
+    else if(ope==","){return 6;}
+    else if((ope=="|")){return 2;}
     return 0;
 }
+func mulMormalizeOrder(f:Function)->Int{
+    switch(f.type){
+    case"c":return 0;
+    case"x":return 1;
+    default:return 10000;
+    }
+}       //for mul normalize
 func infixToSuffix(A:Array<String>)->Array<String>{
     var res:Array<String> = Array<String>();
     var wPool:Array<String> = Array<String>();
     for(var i:Int=0;i<count(A);i++){
-        if(A[i]==","){
-            continue;
-        }
-        if(arrHas(arrOfLBracket,A[i])){
-            wPool.append(A[i]);
-        }else if(arrHas(arrOfRBracket,A[i])){
+        if(A[i]==","){continue;}
+        if(arrHas(arrOfLBracket,A[i])){wPool.append(A[i]);}
+        else if(arrHas(arrOfRBracket,A[i])){
             while(!arrHas(arrOfLBracket,wPool.last!)){
                 res.append(wPool.removeLast());
             }
             wPool.removeLast();
         }else if(arrHas(arrOfOperator,A[i])){
-            while((wPool.last != nil)&&(priority(wPool.last!)<=priority(A[i]))&&(!arrHas(arrOfLBracket,wPool.last!))){
-                res.append(wPool.removeLast());
-            }
+            while((wPool.last != nil)&&(priority(wPool.last!)<=priority(A[i]))&&(!arrHas(arrOfLBracket,wPool.last!))){res.append(wPool.removeLast());}
             wPool.append(A[i]);
-        }else{
-            res.append(A[i]);
-        }
+        }else{res.append(A[i]);}
     }
-    while(wPool.last != nil){
-        res.append(wPool.removeLast());
-    }
+    while(wPool.last != nil){res.append(wPool.removeLast());}
     return res;
 }
 func suffixExpAnalysis(A:Array<String>)->Function{
@@ -244,16 +229,12 @@ func suffixExpAnalysis(A:Array<String>)->Function{
     
     return wPool[0];
 }
-
-
 func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Array<String>{
     var res:Array<String>=Array<String>();
     var cstr:String = str+" ";
     while(true){
         var flagError:Bool = true;
-        if(cstr.isEmpty){
-            break;
-        }
+        if(cstr.isEmpty){break;}
         if(cstr.hasPrefix(" ")){
             cstr.removeAtIndex(cstr.startIndex);
             flagError=false;
@@ -268,9 +249,7 @@ func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Arra
                 flagError=false;
                 cstr.removeRange(cstr.rangeOfString(newstr)!);
                 break;
-            }else{
-                break;
-            }
+            }else{break;}
         }
         for(var i:Int=0;i<count(dict);i++){
             if(cstr.hasPrefix(dict[i])){
@@ -280,20 +259,13 @@ func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Arra
                 break;
             }
         }
-        if(flagError){
-            return Array<String>();
-        }
+        if(flagError){return Array<String>();}
     }
     var ress:Array<String> = Array<String>()
-    if(res[0]=="-"){
-        ress = ress + ["-1","|"];
-    }else if(res[0]=="+"){
-        ress = ress + ["1","|"];
-    }else{
-        ress.append(res[0]);
-    }
+    if(res[0]=="-"){ress = ress + ["-1","|"];}
+    else if(res[0]=="+"){ress = ress + ["1","|"];}
+    else{ress.append(res[0]);}
     for(var i:Int=1;i<count(res)-1;i++){
-        
         var c1:Bool = arrHas(arrOfNum,String(res[i][0]));
         var c2:Bool = arrHas(arrConflict1,res[i]);
         var c3:Bool = arrHas(arrOfNum,String(res[i+1][0]));
@@ -305,9 +277,7 @@ func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Arra
         var c8:Bool = c7 && res[i+1]=="+";
         var c9:Bool = c7 && res[i+1]=="-";
         ress.append(res[i]);
-        if((c1||c2)&&(c3||c4)&&(c5||c6)){
-            ress.append("*");
-        }
+        if((c1||c2)&&(c3||c4)&&(c5||c6)){ress.append("*");}
         if(c8){
             ress+=["1","|"];
             i++;
@@ -315,7 +285,6 @@ func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Arra
             ress+=["-1","|"];
             i++;
         }
-        
     }
     ress.append(res.last!);
     return ress;

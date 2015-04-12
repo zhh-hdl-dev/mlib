@@ -11,10 +11,11 @@ import UIKit
 
 class SView{
     var arrOfUI:Array<UIView>=Array<UIView>();
-    var arrOfMN:Array<String>=Array<String>();
+    var arrOfFN:Array<String>=Array<String>();// name of function
+    var arrOfMN:Array<String>=Array<String>();// name of matrix
     var arrOfSavingData:Array<String>=Array<String>();
     var scrollV:UIScrollView?;
-    private var arrOfBC:Array<ButtonCreation>=Array<ButtonCreation>();
+    private var arrOfBC:Array<ButtonCreation>=Array<ButtonCreation>();//list of 'delete'
     init(scV:UIScrollView){scrollV=scV;}
     func getArrOfMN()->Array<String>{return arrOfMN;}
     func allRemoveAt(index:Int){
@@ -37,7 +38,5 @@ class SView{
         scrollV?.addSubview(nView);
         update();
     }
-    func update(){
-        for(var i:Int=0;i<count(arrOfUI);i++){arrOfUI[i].frame.origin.y=24*CGFloat(i);}
-    }
+    func update(){for(var i:Int=0;i<count(arrOfUI);i++){arrOfUI[i].frame.origin.y=24*CGFloat(i);}}
 }

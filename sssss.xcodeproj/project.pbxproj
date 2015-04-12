@@ -29,6 +29,7 @@
 		463B45CD1AAA1E08006FDF51 /* libA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C51AAA1E08006FDF51 /* libA.swift */; };
 		463B45CF1AAA1E08006FDF51 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C71AAA1E08006FDF51 /* Matrix.swift */; };
 		464E7C091AD8B8A60015859A /* libD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E7C081AD8B8A60015859A /* libD.swift */; };
+		464E7C0B1ADAF2240015859A /* libE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E7C0A1ADAF2240015859A /* libE.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		463B45C51AAA1E08006FDF51 /* libA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libA.swift; sourceTree = "<group>"; };
 		463B45C71AAA1E08006FDF51 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		464E7C081AD8B8A60015859A /* libD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libD.swift; sourceTree = "<group>"; };
+		464E7C0A1ADAF2240015859A /* libE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libE.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				46150C6E1ABC954F00BA78F0 /* libB.swift */,
 				46150C701ABC963700BA78F0 /* libC.swift */,
 				464E7C081AD8B8A60015859A /* libD.swift */,
+				464E7C0A1ADAF2240015859A /* libE.swift */,
 				463B45C01AAA1E08006FDF51 /* BasicFunction.swift */,
 				463B45C21AAA1E08006FDF51 /* Complex.swift */,
 				463B45C31AAA1E08006FDF51 /* Fraction.swift */,
@@ -276,6 +279,7 @@
 				463B45CD1AAA1E08006FDF51 /* libA.swift in Sources */,
 				463B45CF1AAA1E08006FDF51 /* Matrix.swift in Sources */,
 				46150C6B1ABC930800BA78F0 /* ArcTriHFuncs.swift in Sources */,
+				464E7C0B1ADAF2240015859A /* libE.swift in Sources */,
 				463B45CA1AAA1E08006FDF51 /* Complex.swift in Sources */,
 				46150C711ABC963700BA78F0 /* libC.swift in Sources */,
 			);

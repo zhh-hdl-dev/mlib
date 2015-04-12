@@ -29,7 +29,6 @@ func additionSimplify(f:Function)->Function{
     else if(v1.type=="*" && v1.var2!.sameAs(CONSN1)){return simplify(v2-v1.var1!);}
     return simplify(v1)+simplify(v2);
 }
-
 func multiplicationSimplify(f:Function)->Function{
     var v1:Function = simplify(f.var1!);
     var v2:Function = simplify(f.var2!);
@@ -50,8 +49,6 @@ func multiplicationSimplify(f:Function)->Function{
         if(v1.var1!.type=="c"){return Cons(a:v2.cons*v1.var1!.cons)*simplify(v1.var2!);}
         else if(v1.var2!.type=="c"){return Cons(a:v2.cons*v1.var2!.cons)*simplify(v1.var1!);}
     }
-//    else if(v1.sameAs(CONSN1*v2)){return CONSN1 * simplify(v1)^Cons(a:2);}// x*(-x) = -x^2
-//    else if(v2.sameAs(CONSN1*v1)){return CONSN1 * simplify(v2)*Cons(a:2);} // (-x)*x = -x^2
     return simplify(v1)*simplify(v2);
 
 }
@@ -67,7 +64,6 @@ func subtractionSimplify(f:Function)->Function{
     else if(v2.type=="*" && v2.var2!.sameAs(CONSN1)){return simplify(v1+v2.var1!);}
     return simplify(v1)-simplify(v2);
 }
-
 func divisionSimplify(f:Function)->Function{
     var v1:Function = simplify(f.var1!);
     var v2:Function = simplify(f.var2!);
@@ -88,10 +84,6 @@ func powerSimplify(f:Function)->Function{
     else if(v1.sameAs(CONS1)){return CONS1;}
     return simplify(v1)^simplify(v2);
 }
-
-
-
-
 func simplify(f:Function)->Function{
     if(arrHas(arrOfBinary,f.type)){
         var v1:Function = simplify(f.var1!);
