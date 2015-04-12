@@ -10,28 +10,28 @@ import Foundation
 import UIKit
 extension String {
     func substringToIndex(index:Int) -> String{
-        return self.substringToIndex(advance(self.startIndex, index))
+        return self.substringToIndex(advance(self.startIndex, index));
     }
     func substringFromIndex(index:Int) -> String{
-        return self.substringFromIndex(advance(self.startIndex, index))
+        return self.substringFromIndex(advance(self.startIndex, index));
     }
     subscript(index:Int) -> Character{
-        return self[advance(self.startIndex, index)]
+        return self[advance(self.startIndex, index)];
     }
     
 }
 
 protocol Forma{
-    func pp()->UIView?;
-    func spp()->UIView?;
-    func p()->String?;
+    func pp()->UIView;
+    func spp()->UIView;
+    func p();
 }
 
 func GCD(a:Int,b:Int)->Int{
     if(b==0){
         return a;
     }
-    return GCD(b,a%b)
+    return GCD(b,a%b);
 }
 func LCM(a:Int,b:Int)->Int{
     return(a*b)/GCD(a,b);
@@ -94,7 +94,7 @@ func approxFrom(v:Double)->Fraction{
     return Fraction(a:a,b:b);
 }
 func arrHas(A:Array<String>,s:String)->Bool{
-    for(var i=0;i < countElements(A);i++){
+    for(var i:Int=0;i < count(A);i++){
         if(A[i]==s){
             return true;
         }
@@ -103,26 +103,28 @@ func arrHas(A:Array<String>,s:String)->Bool{
 }
 func priority(ope:String)->Int{
     if((ope=="*")||(ope=="/")){
-        return 3;
-    }else if((ope=="+")||(ope=="-")){
         return 4;
-    }else if(arrHas(arrOfLBracket,ope)||arrHas(arrOfRBracket,ope)){
+    }else if((ope=="+")||(ope=="-")){
+        return 5;
+    }else if(arrHas(arrOfLBracket+arrOfRBracket,ope)){
         return 0;
     }else if(arrHas(arrOfUniary,ope)){
         return 1;
     }else if(ope=="^"){
-        return 2;
-    }else if(ope == "integral"){
+        return 3;
+    }else if(ope=="integral"){
         return 1;
-    }else if(ope == ","){
-        return 5;
+    }else if(ope==","){
+        return 6;
+    }else if((ope=="|")){
+        return 2;
     }
     return 0;
 }
 func infixToSuffix(A:Array<String>)->Array<String>{
     var res:Array<String> = Array<String>();
     var wPool:Array<String> = Array<String>();
-    for(var i=0;i<countElements(A);i++){
+    for(var i:Int=0;i<count(A);i++){
         if(A[i]==","){
             continue;
         }
@@ -150,26 +152,26 @@ func infixToSuffix(A:Array<String>)->Array<String>{
 func suffixExpAnalysis(A:Array<String>)->Function{
     println(A);
     var wPool:Array<Function>=Array<Function>();
-    for(var i=0;i<countElements(A);i++){
+    for(var i:Int=0;i<count(A);i++){
         switch A[i]{
         case"+":
-            var a=wPool.removeLast();
-            wPool.append((wPool.removeLast()+a)!);
+            var a:Function=wPool.removeLast();
+            wPool.append((wPool.removeLast()+a));
         case"-":
-            var a=wPool.removeLast();
-            wPool.append((wPool.removeLast()-a)!);
+            var a:Function=wPool.removeLast();
+            wPool.append((wPool.removeLast()-a));
         case"*":
-            var a=wPool.removeLast();
-            wPool.append((wPool.removeLast()*a)!);
+            var a:Function=wPool.removeLast();
+            wPool.append((wPool.removeLast()*a));
         case"/":
-            var a=wPool.removeLast();
-            wPool.append((wPool.removeLast()/a)!);
+            var a:Function=wPool.removeLast();
+            wPool.append((wPool.removeLast()/a));
         case"^":
-            var a=wPool.removeLast();
-            wPool.append((wPool.removeLast()^a)!);
-            
-        case",":
-            continue;
+            var a:Function=wPool.removeLast();
+            wPool.append((wPool.removeLast()^a));
+        case"|":
+            var a:Function=wPool.removeLast();
+            wPool.append(wPool.removeLast()*a);
         case"sin":
             wPool.append(SIN(a:wPool.removeLast()));
         case"cos":
@@ -229,25 +231,26 @@ func suffixExpAnalysis(A:Array<String>)->Function{
         case"x":
             wPool.append(X());
         case"d":
-            wPool.append(wPool.removeLast().d()!);
+            wPool.append(wPool.removeLast().d());
         case"integral":
-            var a = wPool.removeLast();
-            var b = wPool.removeLast();
-            var c = wPool.removeLast();
+            var a:Function = wPool.removeLast();
+            var b:Function = wPool.removeLast();
+            var c:Function = wPool.removeLast();
             wPool.append(Cons(a:integral(c,b.cons,a.cons)));
         default:
             wPool.append(Cons(a:(A[i] as NSString).doubleValue));
         }
     }
+    
     return wPool[0];
 }
 
 
-func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Array<String>?{
+func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Array<String>{
     var res:Array<String>=Array<String>();
-    var cstr = str+" ";
+    var cstr:String = str+" ";
     while(true){
-        var flagError = true;
+        var flagError:Bool = true;
         if(cstr.isEmpty){
             break;
         }
@@ -257,7 +260,7 @@ func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Arra
             continue;
         }
         var newstr:String = "";
-        for(var i:Int=0;i<countElements(cstr);i++){
+        for(var i:Int=0;i<count(cstr);i++){
             if(arrHas(numarray,String(cstr[i]))){
                 newstr += String(cstr[i]);
             }else if(!newstr.isEmpty){
@@ -269,7 +272,7 @@ func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Arra
                 break;
             }
         }
-        for(var i:Int=0;i<countElements(dict);i++){
+        for(var i:Int=0;i<count(dict);i++){
             if(cstr.hasPrefix(dict[i])){
                 res.append(dict[i]);
                 flagError=false;
@@ -278,21 +281,41 @@ func inputStrProcess(dict:Array<String>,numarray:Array<String>,str:String)->Arra
             }
         }
         if(flagError){
-            return nil;
+            return Array<String>();
         }
     }
-    var ress = Array<String>()
-    for(var i=0;i<countElements(res)-1;i++){
+    var ress:Array<String> = Array<String>()
+    if(res[0]=="-"){
+        ress = ress + ["-1","|"];
+    }else if(res[0]=="+"){
+        ress = ress + ["1","|"];
+    }else{
+        ress.append(res[0]);
+    }
+    for(var i:Int=1;i<count(res)-1;i++){
+        
+        var c1:Bool = arrHas(arrOfNum,String(res[i][0]));
+        var c2:Bool = arrHas(arrConflict1,res[i]);
+        var c3:Bool = arrHas(arrOfNum,String(res[i+1][0]));
+        var c4:Bool = arrHas(arrConflict2,res[i+1]);
+        var c5:Bool = !arrHas(arrOfUniary,res[i]);
+        var c6:Bool = !arrHas(arrOfLBracket,res[i+1]);
+        var c7:Bool = arrHas(arrOfBegins,res[i]);
+        
+        var c8:Bool = c7 && res[i+1]=="+";
+        var c9:Bool = c7 && res[i+1]=="-";
         ress.append(res[i]);
-        var c1 = arrHas(arrOfNum,String(res[i][0]));
-        var c2 = arrHas(arrConflict1,res[i]);
-        var c3 = arrHas(arrOfNum,String(res[i+1][0]));
-        var c4 = arrHas(arrConflict2,res[i+1]);
-        var c5 = !arrHas(arrOfUniary,res[i]);
-        var c6 = !arrHas(arrOfLBracket,res[i+1]);
         if((c1||c2)&&(c3||c4)&&(c5||c6)){
             ress.append("*");
         }
+        if(c8){
+            ress+=["1","|"];
+            i++;
+        }else if(c9){
+            ress+=["-1","|"];
+            i++;
+        }
+        
     }
     ress.append(res.last!);
     return ress;

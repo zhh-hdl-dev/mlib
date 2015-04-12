@@ -14,14 +14,14 @@ class Matrix{
     init(r:Int,c:Int,m:Array<Double>){
         self.nor=r;
         self.noc=c;
-        for(var i=0;i<m.endIndex;i++){
+        for(var i:Int=0;i<m.endIndex;i++){
             self.mat.append(m[i]);
         }
     }
     func minor(r:Int,c:Int)->Matrix?{
         var A:Array<Double>=Array<Double>();
         for(var j=1;j <= nor;j++){
-            for(var i=1;i<=nor;i++){
+            for(var i:Int=1;i<=nor;i++){
                 if((i != r)&&(j != c)){
                     A.append(getE(i,c:j));
                 }
@@ -41,7 +41,7 @@ class Matrix{
             return getE(1,c:1)*getE(2,c:2)-getE(1,c:2)*getE(2,c:1);
         }
         var sum:Double=0;
-        for(var i=1;i<=nor;i++){
+        for(var i:Int=1;i<=nor;i++){
             sum+=Ind(i+1)*getE(1,c:i)*minor(1,c:i)!.det()!
         }
         return sum;
@@ -51,14 +51,14 @@ class Matrix{
             return nil;
         }
         var sum:Double=0;
-        for(var i=1;i<=nor;i++){
+        for(var i:Int=1;i<=nor;i++){
             sum+=getE(i,c:i);
         }
         return sum;
     }
     func p(){
-        for(var i=1;i<=noc;i++){
-            for(var j=1;j<=nor;j++){
+        for(var i:Int=1;i<=noc;i++){
+            for(var j:Int=1;j<=nor;j++){
                 print(getE(i,c:j));
                 print("\t");
             }

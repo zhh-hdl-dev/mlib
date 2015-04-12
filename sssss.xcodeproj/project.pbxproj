@@ -28,7 +28,7 @@
 		463B45CC1AAA1E08006FDF51 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C41AAA1E08006FDF51 /* Function.swift */; };
 		463B45CD1AAA1E08006FDF51 /* libA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C51AAA1E08006FDF51 /* libA.swift */; };
 		463B45CF1AAA1E08006FDF51 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B45C71AAA1E08006FDF51 /* Matrix.swift */; };
-		46E691C81AB0E7E000DCF39D /* UItItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E691C71AB0E7DF00DCF39D /* UItItems.swift */; };
+		464E7C091AD8B8A60015859A /* libD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E7C081AD8B8A60015859A /* libD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		463B45C41AAA1E08006FDF51 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		463B45C51AAA1E08006FDF51 /* libA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libA.swift; sourceTree = "<group>"; };
 		463B45C71AAA1E08006FDF51 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
-		46E691C71AB0E7DF00DCF39D /* UItItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UItItems.swift; sourceTree = "<group>"; };
+		464E7C081AD8B8A60015859A /* libD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +112,7 @@
 				463B45C51AAA1E08006FDF51 /* libA.swift */,
 				46150C6E1ABC954F00BA78F0 /* libB.swift */,
 				46150C701ABC963700BA78F0 /* libC.swift */,
+				464E7C081AD8B8A60015859A /* libD.swift */,
 				463B45C01AAA1E08006FDF51 /* BasicFunction.swift */,
 				463B45C21AAA1E08006FDF51 /* Complex.swift */,
 				463B45C31AAA1E08006FDF51 /* Fraction.swift */,
@@ -124,7 +125,6 @@
 				463B45C71AAA1E08006FDF51 /* Matrix.swift */,
 				463B45A01AAA1DDD006FDF51 /* AppDelegate.swift */,
 				463B45A21AAA1DDD006FDF51 /* ViewController.swift */,
-				46E691C71AB0E7DF00DCF39D /* UItItems.swift */,
 				461D61971AD0C923008028B8 /* SView.swift */,
 				461D61991AD0C972008028B8 /* ButtonCreation.swift */,
 				463B45A41AAA1DDD006FDF51 /* Main.storyboard */,
@@ -266,10 +266,10 @@
 				461D61981AD0C923008028B8 /* SView.swift in Sources */,
 				461D619A1AD0C972008028B8 /* ButtonCreation.swift in Sources */,
 				46150C651ABC91A900BA78F0 /* TriFuncs.swift in Sources */,
+				464E7C091AD8B8A60015859A /* libD.swift in Sources */,
 				463B45C81AAA1E08006FDF51 /* BasicFunction.swift in Sources */,
 				463B45CC1AAA1E08006FDF51 /* Function.swift in Sources */,
 				46150C6F1ABC954F00BA78F0 /* libB.swift in Sources */,
-				46E691C81AB0E7E000DCF39D /* UItItems.swift in Sources */,
 				463B45A11AAA1DDD006FDF51 /* AppDelegate.swift in Sources */,
 				463B45CB1AAA1E08006FDF51 /* Fraction.swift in Sources */,
 				46150C691ABC92BF00BA78F0 /* ArcTriFuncs.swift in Sources */,

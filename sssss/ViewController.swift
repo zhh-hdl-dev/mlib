@@ -23,15 +23,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var FunctionTextView: UITextView!
     
     var searchActive : Bool = false;
-    var datadetail = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"];
-    var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"];
-    var filtered:[String] = [];
+    var datadetail:Array<String> = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"];
+    var data:Array<String> = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"];
+    var filtered:Array<String> = [];
     
     override func viewDidLoad(){
         
-        
-        var xxx:Function=SIN(a:X());
-        println(integral(xxx,0,3.14));
         
         
         
@@ -95,11 +92,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         for subv in slist{
             subv.removeFromSuperview();
         }
-        var rawStr = usrInput.text;
-        var rawRes = inputStrProcess(arrOfFunc,arrOfNum,rawStr);
-        var surfixRes = infixToSuffix(rawRes!);
-        var resFunc=suffixExpAnalysis(surfixRes);
-        resView.addSubview(resFunc.pp()!);
+        var rawStr:String = usrInput.text;
+        var rawRes:Array<String>? = inputStrProcess(arrOfFunc,arrOfNum,rawStr);
+        var surfixRes:Array<String> = infixToSuffix(rawRes!);
+        var resFunc:Function=suffixExpAnalysis(surfixRes);
+        resView.addSubview(occSimplify(resFunc).pp());
     }
     
     @IBAction func didtaped(sender: UITapGestureRecognizer) {
@@ -122,13 +119,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var funcName: UITextField!
     @IBOutlet weak var funcExpr: UITextField!
     
-    var dicOfMatrix=Dictionary<String,Matrix>();
-    var dicOfConst=Dictionary<String,Double>();
-    var dicOfFun=Dictionary<String,Function>();
-    var uiRowOfMatrix=Array<UITextField>();
-    var arrOfConst=Array<String>();
-    var arrOfMat=Array<String>();
-    var arrOfFun=Array<String>();
+    var dicOfMatrix:Dictionary<String,Matrix>=Dictionary<String,Matrix>();
+    var dicOfConst:Dictionary<String,Double>=Dictionary<String,Double>();
+    var dicOfFun:Dictionary<String,Function>=Dictionary<String,Function>();
+    var uiRowOfMatrix:Array<UITextField>=Array<UITextField>();
+    var arrOfConst:Array<String>=Array<String>();
+    var arrOfMat:Array<String>=Array<String>();
+    var arrOfFun:Array<String>=Array<String>();
     var arrOfAllEle:Array<String>{get{return resDirector!.getArrOfMN();}}
     
     @IBAction func constAdd(sender:UIButton) {
@@ -142,18 +139,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     @IBAction func matrixAdd(sender: UIButton){
         if((!matrixName.text.isEmpty)&&(!arrHas(arrOfAllEle,matrixName.text))){
-            var res=Array<Double>();
+            var res:Array<Double>=Array<Double>();
             var abstract:String="";
-            for(var i=0;i<countElements(uiRowOfMatrix);i++){
+            for(var i:Int=0;i<count(uiRowOfMatrix);i++){
                 var str:String=uiRowOfMatrix[i].text;
                 abstract+=str+",";
                 var row = str.componentsSeparatedByString(",");
-                for(var j=0;j<countElements(row);j++){
+                for(var j:Int=0;j<count(row);j++){
                     res.append((row[j] as NSString).doubleValue);
                 }
             }
-            var resM=Matrix(r:countElements(uiRowOfMatrix),c:countElements(res)/countElements(uiRowOfMatrix),m:res);
-            abstract = String(countElements(uiRowOfMatrix))+"x"+String(countElements(res)/countElements(uiRowOfMatrix))+":"+abstract;
+            var resM:Matrix=Matrix(r:count(uiRowOfMatrix),c:count(res)/count(uiRowOfMatrix),m:res);
+            abstract = String(count(uiRowOfMatrix))+"x"+String(count(res)/count(uiRowOfMatrix))+":"+abstract;
             dicOfMatrix[matrixName.text]=resM;
             resDirector?.addL(matrixName.text+":M:"+abstract);
             arrOfMat.append(matrixName.text);
@@ -165,7 +162,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     @IBAction func funcAdd(sender: UIButton) {
         if((!funcName.text.isEmpty)&&(!arrHas(arrOfAllEle,funcName.text))){
-            dicOfFun[funcName.text]=suffixExpAnalysis(infixToSuffix(inputStrProcess(arrOfFunc,arrOfNum,funcExpr.text)!));
+            dicOfFun[funcName.text]=suffixExpAnalysis(infixToSuffix(inputStrProcess(arrOfFunc,arrOfNum,funcExpr.text)));
             resDirector?.addL(funcName.text+":F:"+funcExpr.text);
             arrOfFun.append(funcName.text);
             funcName.text="";
@@ -174,8 +171,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func ctrlNumOfMatrixRows(sender: UIStepper) {
-        if (sender.value>Double(countElements(uiRowOfMatrix))){
-            var newT:UITextField=UITextField(frame:CGRectMake(0,24*CGFloat(countElements(uiRowOfMatrix)),160,24));
+        if (sender.value>Double(count(uiRowOfMatrix))){
+            var newT:UITextField=UITextField(frame:CGRectMake(0,24*CGFloat(count(uiRowOfMatrix)),160,24));
             newT.borderStyle = .RoundedRect;
             uiRowOfMatrix.append(newT);
             matrixField.addSubview(newT);
@@ -199,7 +196,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         searchActive = false;
     }
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
         filtered = data.filter({ (text) -> Bool in
             let tmp: NSString = text
             let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
@@ -226,7 +222,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return data.count;
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
+        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell")! as! UITableViewCell
         
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]
